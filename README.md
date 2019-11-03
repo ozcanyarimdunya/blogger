@@ -1,6 +1,6 @@
-# Project
+# Blogger
 
-A boilerplate django project.
+My blogger project
 
 
 ## Local setup
