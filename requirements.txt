@@ -1,6 +1,8 @@
 coverage==4.5.4
 Django==2.2.6
+django-ckeditor==5.7.1
 django-constance==2.4.0
+django-js-asset==1.2.2
 gunicorn==19.9.0
 Pillow==6.2.1
 psycopg2==2.8.4

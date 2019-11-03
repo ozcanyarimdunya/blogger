@@ -17,9 +17,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # third party application
+    'source.apps.common.apps.ConstanceConfig',
+    'constance.backends.database',
+    'ckeditor',
+    'ckeditor_uploader',
+
     # custom application
-    'constance',
     'source.apps.common.apps.CommonConfig',
+    'source.apps.author.apps.AuthorConfig',
+    'source.apps.category.apps.CategoryConfig',
+    'source.apps.article.apps.ArticleConfig',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +94,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-SITE_HEADER = "Project"
+SITE_HEADER = "Blogger"
 
 # constance settings
 CONSTANCE_ADDITIONAL_FIELDS = {
@@ -99,11 +107,12 @@ CONSTANCE_ADDITIONAL_FIELDS = {
 CONSTANCE_CONFIG = OrderedDict([
     ('SITE NAME', ('My Title', 'Website title')),
     ('SITE DESCRIPTION', ('', 'Website description')),
-    ('USE LOGO', ('yes', 'Use a logo for website', 'yes_no_null_select')),
     ('LOGO IMAGE', ('default.png', 'Website logo', 'image_field')),
 ])
 
 CONSTANCE_CONFIG_FIELDSETS = {
-    'General Options': ('SITE NAME', 'SITE DESCRIPTION'),
-    'Site Options': ('USE LOGO', 'LOGO IMAGE'),
+    'General Options': ('SITE NAME', 'SITE DESCRIPTION', 'LOGO IMAGE'),
 }
+
+AUTH_USER_MODEL = 'common.Author'
+CKEDITOR_UPLOAD_PATH = "editor/"

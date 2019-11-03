@@ -6,8 +6,9 @@ admin.site.site_header = settings.SITE_HEADER
 admin.site.site_title = settings.SITE_HEADER
 
 urlpatterns = [
-    path('', include('source.apps.common.urls')),
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', include('source.apps.common.urls')),
 ]
 
 if settings.DEBUG:
