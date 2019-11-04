@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% get_media_prefix %}{{ config.ABOUT_PAGE_IMAGE }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>{{ config.ABOUT_PAGE_TITLE }}</h1>
+            <span class="subheading">{{ config.ABOUT_PAGE_SUBTITLE }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{ config.ABOUT_PAGE_SUMMARY|safe }}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

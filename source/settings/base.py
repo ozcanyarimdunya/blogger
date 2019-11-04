@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     # custom application
     'source.apps.common.apps.CommonConfig',
     'source.apps.author.apps.AuthorConfig',
-    'source.apps.category.apps.CategoryConfig',
     'source.apps.article.apps.ArticleConfig',
 ]
 
@@ -50,6 +49,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'constance.context_processors.config',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -98,21 +98,49 @@ SITE_HEADER = "Blogger"
 
 # constance settings
 CONSTANCE_ADDITIONAL_FIELDS = {
-    'yes_no_null_select': ['django.forms.fields.ChoiceField', {
-        'widget': 'django.forms.Select',
-        'choices': ((None, "-----"), ("yes", "Yes"), ("no", "No"))
-    }],
     'image_field': ['django.forms.ImageField', {}],
+    'editor_field': ['ckeditor_uploader.fields.RichTextUploadingFormField', {'required': False}],
 }
+
 CONSTANCE_CONFIG = OrderedDict([
-    ('SITE NAME', ('My Title', 'Website title')),
-    ('SITE DESCRIPTION', ('', 'Website description')),
-    ('LOGO IMAGE', ('default.png', 'Website logo', 'image_field')),
+    ('SITE_NAME', ('ÖZCAN YARIMDÜNYA', 'Website name')),
+    ('SITE_FOOTER_TEXT', ('Copyright © semiworld.org 2019', 'Website footer text')),
+    ('SITE_LINKEDIN_URL', ('', 'LinkedIn url')),
+    ('SITE_TWITTER_URL', ('', 'Twitter url')),
+    ('SITE_GITHUB_URL', ('', 'Github url')),
+    ('SITE_STACKOVERFLOW_URL', ('', 'Stackoverflow url')),
+    ('HOME_PAGE_TITLE', ('Personal Blog', 'Home page title')),
+    ('HOME_PAGE_DESCRIPTION', ('Software Engineer @ Huawei Tech.', 'Home page title description')),
+    ('HOME_PAGE_IMAGE', ('default.png', 'Home page image', 'image_field')),
+    ('ABOUT_PAGE_TITLE', ('About Me', 'About page title')),
+    ('ABOUT_PAGE_SUBTITLE', ('This is what i do.', 'About page subtitle')),
+    ('ABOUT_PAGE_SUMMARY', ('A summary about me', 'About page summary', 'editor_field')),
+    ('ABOUT_PAGE_IMAGE', ('default.png', 'About page image', 'image_field')),
 ])
 
-CONSTANCE_CONFIG_FIELDSETS = {
-    'General Options': ('SITE NAME', 'SITE DESCRIPTION', 'LOGO IMAGE'),
-}
+CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
+    ('Site Settings', (
+        'SITE_NAME',
+        'SITE_FOOTER_TEXT',
+    )),
+    ('Social Links', (
+        'SITE_LINKEDIN_URL',
+        'SITE_TWITTER_URL',
+        'SITE_GITHUB_URL',
+        'SITE_STACKOVERFLOW_URL',
+    )),
+    ('Home Page', (
+        'HOME_PAGE_TITLE',
+        'HOME_PAGE_DESCRIPTION',
+        'HOME_PAGE_IMAGE',
+    )),
+    ('About Page', (
+        'ABOUT_PAGE_TITLE',
+        'ABOUT_PAGE_SUBTITLE',
+        'ABOUT_PAGE_IMAGE',
+        'ABOUT_PAGE_SUMMARY',
+    )),
+])
 
 AUTH_USER_MODEL = 'common.Author'
 CKEDITOR_UPLOAD_PATH = "editor/"

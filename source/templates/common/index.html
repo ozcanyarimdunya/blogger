@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% get_media_prefix %}{{ config.HOME_PAGE_IMAGE }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{ config.HOME_PAGE_TITLE }}</h1>
+            <span class="subheading">{{ config.HOME_PAGE_DESCRIPTION }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <!-- Articles --->
+
+        {% for article in articles %}
+          <div class="post-preview">
+            <a href="{% url 'article:detail' slug=article.slug %}">
+              <h2 class="post-title">
+                {{ article.title }}
+              </h2>
+              <h3 class="post-subtitle">
+                {{ article.subtitle }}
+              </h3>
+            </a>
+            <p class="post-meta">Posted by
+              <a href="#">{{ article.author }}</a>
+              on {{ article.created }}</p>
+          </div>
+        {% endfor %}
+
+        <hr>
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-outline-primary float-left" href="#">&larr; Previous Posts</a>
+          <a class="btn btn-outline-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

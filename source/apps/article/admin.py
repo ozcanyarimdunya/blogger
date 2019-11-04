@@ -11,12 +11,13 @@ class ArticleAdminForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = (
-            'title', 'category', 'image', 'content'
+            'author', 'title', 'subtitle', 'slug', 'image', 'content',
         )
 
 
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleAdminForm
+    readonly_fields = ('slug',)
 
 
 admin.site.register(Article, ArticleAdmin)
