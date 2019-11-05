@@ -24,7 +24,6 @@ services:
       dockerfile: docker/Dockerfile
     restart: unless-stopped
     depends_on:
-      - redis
       - database
     command: /bin/sh /app/docker/start.sh
     entrypoint: /app/docker/entrypoint.sh

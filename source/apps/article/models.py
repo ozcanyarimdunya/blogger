@@ -8,6 +8,11 @@ from source.apps.common.models import BaseModel
 User = get_user_model()
 
 
+class ArticleManager(models.Manager):
+    def published(self):
+        return self.get_queryset().filter(is_published=True)
+
+
 class Article(BaseModel):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=120)
@@ -15,6 +20,9 @@ class Article(BaseModel):
     content = models.TextField()
     image = models.ImageField()
     slug = models.SlugField(max_length=155, null=True, blank=True)
+    is_published = models.BooleanField(default=False)
+
+    objects = ArticleManager()
 
     class Meta:
         app_label = 'common'

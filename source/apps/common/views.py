@@ -10,7 +10,7 @@ from .forms import ContactForm
 
 class IndexView(ListView):
     template_name = 'common/index.html'
-    queryset = Article.objects.all()
+    queryset = Article.objects.published()
     paginate_by = 4
 
 
