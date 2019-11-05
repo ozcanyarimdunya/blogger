@@ -13,4 +13,18 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
-        app_label = 'blogger'
+        app_label = 'common'
+
+
+class Contact(BaseModel):
+    name = models.CharField(max_length=120)
+    email = models.EmailField(null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
+    ip = models.GenericIPAddressField(null=True, blank=True)
+
+    class Meta:
+        app_label = 'common'
+        ordering = ('-updated',)
+
+    def __str__(self):
+        return self.name
