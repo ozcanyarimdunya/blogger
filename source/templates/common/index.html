@@ -24,7 +24,7 @@
 
         <!-- Articles --->
 
-        {% for article in articles %}
+        {% for article in object_list %}
           <div class="post-preview">
             <a href="{% url 'article:detail' slug=article.slug %}">
               <h2 class="post-title">
@@ -36,16 +36,29 @@
             </a>
             <p class="post-meta">Posted by
               <a href="#">{{ article.author }}</a>
-              on {{ article.created }}</p>
+              on {{ article.created|date:"N j, Y" }}</p>
           </div>
         {% endfor %}
 
-        <hr>
         <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-outline-primary float-left" href="#">&larr; Previous Posts</a>
-          <a class="btn btn-outline-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
+        {% if is_paginated %}
+          <hr>
+          <div class="clearfix">
+            {% if page_obj.has_previous %}
+              <a class="btn btn-outline-primary float-left"
+                 href="?page={{ page_obj.previous_page_number }}">&larr; Previous Posts</a>
+            {% else %}
+              <a class="btn btn-outline-secondary float-left disabled" href="#">&larr; Previous Posts</a>
+            {% endif %}
+            {% if page_obj.has_next %}
+              <a class="btn btn-outline-primary float-right"
+                 href="?page={{ page_obj.next_page_number }}">Older Posts &rarr;</a>
+            {% else %}
+              <a class="btn btn-outline-secondary float-right disabled" href="#">Older Posts &rarr;</a>
+            {% endif %}
+          </div>
+        {% endif %}
+
       </div>
     </div>
   </div>

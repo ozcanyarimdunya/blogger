@@ -1,18 +1,12 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from source.apps.article.models import Article
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
     template_name = 'common/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        articles = Article.objects.all()
-        context.update(
-            articles=articles
-        )
-        return context
+    queryset = Article.objects.all()
+    paginate_by = 4
 
 
 class AboutView(TemplateView):

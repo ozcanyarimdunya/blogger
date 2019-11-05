@@ -18,10 +18,10 @@ class Article(BaseModel):
 
     class Meta:
         app_label = 'common'
+        ordering = ('-updated',)
 
     def save(self, *args, **kwargs):
-        if self.pk is None:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):
