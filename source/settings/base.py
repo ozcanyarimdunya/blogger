@@ -121,6 +121,11 @@ CONSTANCE_CONFIG = OrderedDict([
     ('ABOUT_PAGE_SUBTITLE', ('This is what i do.', 'About page subtitle')),
     ('ABOUT_PAGE_SUMMARY', ('A summary about me', 'About page summary', 'editor_field')),
     ('ABOUT_PAGE_IMAGE', ('default.png', 'About page image', 'image_field')),
+    ('CONTACT_PAGE_TITLE', ('Contact Me', 'Contact page title')),
+    ('CONTACT_PAGE_SUBTITLE', ('Have questions? I have answers.', 'Contact page subtitle')),
+    ('CONTACT_PAGE_SUMMARY', ('Want to get in touch? Fill out the form below to send me a message and '
+                              'I will get back to you as soon as possible!', 'Contact page summary', 'editor_field')),
+    ('CONTACT_PAGE_IMAGE', ('default.png', 'Contact page image', 'image_field')),
 ])
 
 CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
@@ -147,6 +152,12 @@ CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
         'ABOUT_PAGE_SUBTITLE',
         'ABOUT_PAGE_IMAGE',
         'ABOUT_PAGE_SUMMARY',
+    )),
+    ('Contact Page', (
+        'CONTACT_PAGE_TITLE',
+        'CONTACT_PAGE_SUBTITLE',
+        'CONTACT_PAGE_SUMMARY',
+        'CONTACT_PAGE_IMAGE',
     )),
 ])
 

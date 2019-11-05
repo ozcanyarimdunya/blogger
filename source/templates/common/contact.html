@@ -3,14 +3,14 @@
 
 {% block content %}
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url({% static 'img/contact-bg.jpg' %})">
+  <header class="masthead" style="background-image: url('{% get_media_prefix %}{{ config.CONTACT_PAGE_IMAGE }}')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Contact Me</h1>
-            <span class="subheading">Have questions? I have answers.</span>
+            <h1>{{ config.CONTACT_PAGE_TITLE }}</h1>
+            <span class="subheading">{{ config.CONTACT_PAGE_SUBTITLE }}</span>
           </div>
         </div>
       </div>
@@ -23,11 +23,10 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         {% include 'includes/message.html' %}
 
-        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as
-          possible!</p>
+        {{ config.CONTACT_PAGE_SUMMARY|safe }}
 
         <form method="post">
-        {% csrf_token %}
+          {% csrf_token %}
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Name</label>
