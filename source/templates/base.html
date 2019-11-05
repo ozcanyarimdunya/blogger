@@ -5,10 +5,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="{{ config.SITE_AUTHOR }}">
+  <meta name="author" content="{{ config.SITE_DESCRIPTION }}">
+  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon"/>
 
-  <title>Hi!</title>
+
+  <title>{{ config.SITE_TITLE }}</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">

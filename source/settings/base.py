@@ -1,6 +1,8 @@
 import os
 from collections import OrderedDict
 
+from django.contrib.messages import constants as messages
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'si*52#bq8#88qafliumhv#@yge6edq&vn2moy2l4e=t)7b61kc'
@@ -103,7 +105,10 @@ CONSTANCE_ADDITIONAL_FIELDS = {
 }
 
 CONSTANCE_CONFIG = OrderedDict([
+    ('SITE_TITLE', ('Hi!', 'Website title')),
     ('SITE_NAME', ('ÖZCAN YARIMDÜNYA', 'Website name')),
+    ('SITE_AUTHOR', ('ÖZCAN YARIMDÜNYA', 'Site author')),
+    ('SITE_DESCRIPTION', ('Personal Blog', 'Site description')),
     ('SITE_FOOTER_TEXT', ('Copyright © semiworld.org 2019', 'Website footer text')),
     ('SITE_LINKEDIN_URL', ('', 'LinkedIn url')),
     ('SITE_TWITTER_URL', ('', 'Twitter url')),
@@ -120,8 +125,11 @@ CONSTANCE_CONFIG = OrderedDict([
 
 CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
     ('Site Settings', (
+        'SITE_TITLE',
         'SITE_NAME',
         'SITE_FOOTER_TEXT',
+        'SITE_AUTHOR',
+        'SITE_DESCRIPTION',
     )),
     ('Social Links', (
         'SITE_LINKEDIN_URL',
@@ -144,3 +152,11 @@ CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
 
 AUTH_USER_MODEL = 'common.Author'
 CKEDITOR_UPLOAD_PATH = "editor/"
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}

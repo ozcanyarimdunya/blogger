@@ -20,4 +20,4 @@ class AboutView(TemplateView):
 
 
 class ContactView(TemplateView):
-    template_name = 'article/../../templates/common/contact.html'
+    template_name = 'common/contact.html'
