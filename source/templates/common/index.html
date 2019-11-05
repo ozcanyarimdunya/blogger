@@ -38,11 +38,11 @@
               <a href="#">{{ article.author }}</a>
               on {{ article.created|date:"N j, Y" }}</p>
           </div>
+          <hr>
         {% endfor %}
 
         <!-- Pager -->
         {% if is_paginated %}
-          <hr>
           <div class="clearfix">
             {% if page_obj.has_previous %}
               <a class="btn btn-outline-primary float-left"
