@@ -7,5 +7,7 @@ omit =
     source/wsgi.py
     source/apps/*/migrations/*
     source/apps/*/tests.py
+    source/apps/*/admin.py
+    source/apps/*/urls.py
     source/apps/*/management/commands/*
     source/settings/*
