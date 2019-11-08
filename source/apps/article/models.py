@@ -37,3 +37,17 @@ class Article(BaseModel):
 
     def get_absolute_url(self):
         return reverse_lazy('article:detail', kwargs={'slug': self.slug})
+
+
+class Stats(BaseModel):
+    views = models.BigIntegerField(default=0)
+    likes = models.BigIntegerField(default=0)
+    path = models.TextField(null=True, blank=True)
+
+    class Meta:
+        app_label = 'common'
+        ordering = ('-views',)
+        verbose_name_plural = 'Stats'
+
+    def __str__(self):
+        return self.path

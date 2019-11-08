@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase, override_settings
 
-from source.apps.article.models import Article
+from source.apps.article.models import Article, Stats
 
 User = get_user_model()
 
@@ -38,4 +38,30 @@ class TestArticle(TestCase):
         self.assertEqual(
             self.article.get_absolute_url(),
             '/article/test-title/'
+        )
+
+
+class TestStats(TestCase):
+    def tearDown(self) -> None:
+        Stats.objects.all().delete()
+
+    def test_str(self):
+        stats = Stats.objects.create(path='/hello/')
+        self.assertEqual(str(stats), '/hello/')
+
+    def test_stats(self):
+        self.client.get('/about/')
+        self.client.get('/about/')
+        self.client.get('/contact/')
+        self.client.get('/contact/')
+        self.client.get('/contact/')
+        self.client.get('/contact/')
+        self.client.get('/')
+        self.client.get('/admin/')
+
+        self.assertEqual(
+            Stats.objects.all().count(), 3
+        )
+        self.assertEqual(
+            Stats.objects.get(path='/contact/').views, 4
         )

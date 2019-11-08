@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import Article
+from .models import Article, Stats
 
 
 class ArticleAdminForm(forms.ModelForm):
@@ -30,4 +30,15 @@ class ArticleAdmin(admin.ModelAdmin):
     make_draft.short_description = "Mark selected as draft"
 
 
+class StatsAdmin(admin.ModelAdmin):
+    list_display = ('path', 'views', 'created', 'updated')
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Stats, StatsAdmin)
