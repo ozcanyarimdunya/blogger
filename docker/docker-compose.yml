@@ -46,4 +46,4 @@ services:
     depends_on:
       - webapp
     ports:
-      - 1800:80
+      - 8000:80
