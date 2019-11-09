@@ -1,6 +1,6 @@
 .PHONY: all
 
-all: install migrations initial static test coverage run
+all: install migrations static test coverage run
 
 coverage:
 	coverage run --source='.' manage.py test blogger
