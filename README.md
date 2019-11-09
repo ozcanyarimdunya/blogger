@@ -1,33 +1,34 @@
 # Blogger
 
-A blog application
+[![Build Status](https://travis-ci.org/ozcanyarimdunya/blogger.svg?branch=master)](https://travis-ci.org/ozcanyarimdunya/blogger)
+[![Coverage Status](https://coveralls.io/repos/github/ozcanyarimdunya/blogger/badge.svg?branch=master)](https://coveralls.io/github/ozcanyarimdunya/blogger?branch=master)
+
+A blog application with django
 
 
-## Local setup
+## Installation
 
-1. Install the virtualenv package.
+1. Clone the repository.
    ```
-   pip install virtualenv
-   ```
-
-2. Create the virtual environment.
-   ```
-   virtualenv venv
-   ```    
-
-3. Activate the virtual environment.
-   ```
-   source venv/bin/activate
+   $ git clone https://github.com/ozcanyarimdunya/blogger.git
+   $ cd blogger/
    ```
 
-4. Install all dependencies and start application.
+2. Install the virtualenv package, create new virtual environment and activate it.
    ```
-   make
+   $ pip install virtualenv
+   $ virtualenv venv
+   $ source venv/bin/activate
    ```
 
-## Docker installation
+3. Install all dependencies and start application on [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+   ```
+   $ make
+   ```
 
-1. Make sure you have installed **docker**.
+## Running in docker
+
+1. Make sure you have installed **docker** and **docker-compose**.
    ```
    make docd
    ```
