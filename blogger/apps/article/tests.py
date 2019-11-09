@@ -41,7 +41,7 @@ class TestArticle(TestCase):
         )
 
     def test_preview_url(self):
-        self.assertEqual(
+        self.assertInHTML(
+            '<a class="button" href="/article/preview/test-title/" target="blank">Preview</a>',
             self.article.preview,
-            '<a href="/article/preview/test-title/" class="viewlink" target="blank">Preview</a>'
         )

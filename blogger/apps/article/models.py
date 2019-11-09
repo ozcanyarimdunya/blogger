@@ -41,6 +41,6 @@ class Article(BaseModel):
 
     @property
     def preview(self):
-        return format_html("""<a href="{}" class="viewlink" target="blank">Preview</a>""",
+        return format_html("""<a href="{}" class="button" target="blank">Preview</a>""",
                            reverse_lazy('article:preview', kwargs={'slug': self.slug}))
 
