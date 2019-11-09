@@ -1,7 +1,6 @@
 language: python
 
 python:
-  - "3.4"
   - "3.5"
   - "3.6"
   - "3.7"
@@ -11,6 +10,6 @@ python:
 
 install: make install
 
-before_script: make makemigrations
+before_script: make migrations
 
 script: make test
