@@ -3,7 +3,7 @@ from constance.apps import ConstanceConfig as _ConstanceConfig
 
 
 class CommonConfig(AppConfig):
-    name = 'source.apps.common'
+    name = 'blogger.apps.common'
     verbose_name = 'Blogger'
 
 

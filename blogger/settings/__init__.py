@@ -1,9 +1,9 @@
 import logging
 
-from source.core.utils import FolderUtils
+from blogger.core.utils import FolderUtils
 from .base import *
 
-logger = logging.getLogger('source')
+logger = logging.getLogger('blogger')
 logger.error("Current mode: %s" % os.getenv('MODE', 'DEVELOPMENT'))
 
 if os.getenv('MODE') == 'PRODUCTION':

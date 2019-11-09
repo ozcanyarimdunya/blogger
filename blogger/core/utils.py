@@ -1,7 +1,7 @@
 import os
 import logging
 
-logger = logging.getLogger('source')
+logger = logging.getLogger('blogger')
 
 
 class FolderUtils:

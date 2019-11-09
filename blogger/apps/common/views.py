@@ -1,10 +1,9 @@
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
 from django.views.generic import TemplateView, ListView, FormView
 
-from source.apps.article.models import Article
+from blogger.apps.article.models import Article
 from .forms import ContactForm
 
 

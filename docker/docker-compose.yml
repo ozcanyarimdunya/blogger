@@ -29,8 +29,8 @@ services:
     env_file:
       - webapp/.env
     volumes:
-      - 'static_volume:/app/source/assets/static/'
-      - 'media_volume:/app/source/media/'
+      - 'static_volume:/app/blogger/assets/static/'
+      - 'media_volume:/app/blogger/media/'
     depends_on:
       - database
     expose:

@@ -20,14 +20,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party application
-    'source.apps.common.apps.ConstanceConfig',
+    'blogger.apps.common.apps.ConstanceConfig',
     'constance.backends.database',
     'ckeditor',
     'ckeditor_uploader',
 
     # custom application
-    'source.apps.common.apps.CommonConfig',
-    'source.apps.article.apps.ArticleConfig',
+    'blogger.apps.common.apps.CommonConfig',
+    'blogger.apps.article.apps.ArticleConfig',
 ]
 
 MIDDLEWARE = [
@@ -38,10 +38,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'source.middlewares.StatsMiddleWare',
+    'blogger.middlewares.StatsMiddleWare',
 ]
 
-ROOT_URLCONF = 'source.urls'
+ROOT_URLCONF = 'blogger.urls'
 
 TEMPLATES = [
     {
@@ -61,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'source.wsgi.application'
+WSGI_APPLICATION = 'blogger.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

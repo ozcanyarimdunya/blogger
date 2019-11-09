@@ -28,7 +28,7 @@ LOGGING = {
             'handlers': ['console'],
             'level': os.getenv('LOG_LEVEL', 'INFO'),
         },
-        'source': {
+        'blogger': {
             'handlers': ['console'],
             'level': os.getenv('LOG_LEVEL', 'INFO'),
         },

@@ -6,9 +6,9 @@ admin.site.site_header = settings.SITE_HEADER
 admin.site.site_title = settings.SITE_HEADER
 
 urlpatterns = [
-    path('', include('source.apps.common.urls')),
+    path('', include('blogger.apps.common.urls')),
     path('admin/', admin.site.urls),
-    path('article/', include('source.apps.article.urls')),
+    path('article/', include('blogger.apps.article.urls')),
     path('editor/', include('ckeditor_uploader.urls')),
 ]
 

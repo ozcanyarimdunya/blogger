@@ -1,6 +1,6 @@
 # Blogger
 
-My blogger project
+A blog application
 
 
 ## Local setup
@@ -30,14 +30,4 @@ My blogger project
 1. Make sure you have installed **docker**.
    ```
    make docd
-   ```
-
-## Documentations
-
-1. Add document files under **docs/** folder and build them as html.
-   ```
-   pip install sphinx
-   ```
-   ```
-   make documentation
    ```

@@ -3,7 +3,7 @@
 all: install migrations initial static test coverage run
 
 coverage:
-	coverage run --source='.' manage.py test source
+	coverage run --source='.' manage.py test blogger
 	coverage report -m
 
 coverage-html:
@@ -32,4 +32,4 @@ static:
 	python manage.py collectstatic --noinput
 
 test:
-	python manage.py test source
+	python manage.py test blogger

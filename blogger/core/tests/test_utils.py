@@ -1,7 +1,7 @@
 import tempfile
 from pathlib import Path
 from django.test import TestCase
-from source.core.utils import FolderUtils
+from blogger.core.utils import FolderUtils
 
 
 class TestFolderUtils(TestCase):
@@ -16,7 +16,7 @@ class TestFolderUtils(TestCase):
 
     def test_create_folder_exception(self):
         import logging
-        logger = logging.getLogger('source')
+        logger = logging.getLogger('blogger')
 
         tmp_dir = Path(tempfile.TemporaryDirectory().name)
         new_dir = tmp_dir.joinpath('c/d/e/f')

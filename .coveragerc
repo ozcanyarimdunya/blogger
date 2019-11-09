@@ -3,11 +3,11 @@ skip_covered = True
 show_missing = True
 omit =
     manage.py
-    source/urls.py
-    source/wsgi.py
-    source/apps/*/admin.py
-    source/apps/*/tests.py
-    source/apps/*/management/commands/*
-    source/apps/*/migrations/*
-    source/apps/*/urls.py
-    source/settings/*
+    blogger/urls.py
+    blogger/wsgi.py
+    blogger/apps/*/admin.py
+    blogger/apps/*/tests.py
+    blogger/apps/*/management/commands/*
+    blogger/apps/*/migrations/*
+    blogger/apps/*/urls.py
+    blogger/settings/*

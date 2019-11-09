@@ -4,7 +4,7 @@ from django.template.defaultfilters import slugify
 from django.urls import reverse_lazy
 from django.utils.html import format_html
 
-from source.apps.common.models import BaseModel
+from blogger.apps.common.models import BaseModel
 
 User = get_user_model()
 

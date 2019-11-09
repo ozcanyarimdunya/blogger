@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from source.apps.common.models import Contact, Stats
+from blogger.apps.common.models import Contact, Stats
 
 
 class TestContact(TestCase):
@@ -68,3 +68,26 @@ class TestStats(TestCase):
         self.assertNotEqual(
             stat.last_viewed.time(), stat.created.time()
         )
+
+
+class TestContactView(TestCase):
+    def tearDown(self) -> None:
+        Contact.objects.all().delete()
+
+    def test_contact_remote(self):
+        payload = {
+            'name': 'Test user',
+            'email': 'test@email.com',
+            'message': 'Test message',
+        }
+        response = self.client.post('/contact/', data=payload, REMOTE_ADDR="127.0.0.1")
+        self.assertEqual(response.status_code, 302)
+
+    def test_contact_forwarded(self):
+        payload = {
+            'name': 'Test user',
+            'email': 'test@email.com',
+            'message': 'Test message',
+        }
+        response = self.client.post('/contact/', data=payload, HTTP_X_FORWARDED_FOR="10.0.0.1")
+        self.assertEqual(response.status_code, 302)

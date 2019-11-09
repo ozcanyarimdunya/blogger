@@ -1,6 +1,6 @@
 from django.utils.deprecation import MiddlewareMixin
 
-from source.apps.common.models import Stats
+from blogger.apps.common.models import Stats
 
 
 class StatsMiddleWare(MiddlewareMixin):
