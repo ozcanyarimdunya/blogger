@@ -1,14 +1,16 @@
 language: python
-
 python:
   - "3.6"
   - "3.7"
   - "3.8"
   - "3.8-dev"
   - "nightly"
-
-install: make install
-
-before_script: make migrations
-
-script: make test
+install:
+  - make install
+  - pip install coveralls
+before_script:
+  - make migrations
+script:
+  - make test
+  - make coverage
+after_success: coveralls
