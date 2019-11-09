@@ -10,7 +10,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('article/', include('source.apps.article.urls')),
     path('editor/', include('ckeditor_uploader.urls')),
-    path('filer/', include('filer.urls')),
 ]
 
 if settings.DEBUG:

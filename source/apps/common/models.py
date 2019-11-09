@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 class BaseModel(models.Model):
@@ -16,6 +17,11 @@ class BaseModel(models.Model):
         app_label = 'common'
 
 
+class Author(AbstractUser, BaseModel):
+    image = models.ImageField(null=True, blank=True)
+    bio = models.TextField(null=True, blank=True)
+
+
 class Contact(BaseModel):
     name = models.CharField(max_length=120)
     email = models.EmailField(null=True, blank=True)
@@ -24,7 +30,6 @@ class Contact(BaseModel):
     is_read = models.BooleanField(default=False)
 
     class Meta:
-        app_label = 'common'
         ordering = ('-updated',)
 
     def __str__(self):
@@ -33,3 +38,20 @@ class Contact(BaseModel):
     @property
     def message_(self):
         return self.message[:30] + '...'
+
+
+class Stats(BaseModel):
+    views = models.BigIntegerField(default=0)
+    likes = models.BigIntegerField(default=0)
+    path = models.TextField(null=True, blank=True)
+
+    class Meta:
+        ordering = ('-views',)
+        verbose_name_plural = 'Stats'
+
+    def __str__(self):
+        return self.path
+
+    @property
+    def last_viewed(self):
+        return self.updated

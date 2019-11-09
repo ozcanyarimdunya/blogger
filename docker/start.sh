@@ -2,7 +2,6 @@
 
 echo "... Applying Django migrations"
 python manage.py makemigrations
-python manage.py migrate filer
 python manage.py migrate
 
 echo "... Applying Django collect static"

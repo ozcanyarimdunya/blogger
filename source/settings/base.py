@@ -24,13 +24,9 @@ INSTALLED_APPS = [
     'constance.backends.database',
     'ckeditor',
     'ckeditor_uploader',
-    'easy_thumbnails',
-    'filer',
-    'mptt',
 
     # custom application
     'source.apps.common.apps.CommonConfig',
-    'source.apps.author.apps.AuthorConfig',
     'source.apps.article.apps.ArticleConfig',
 ]
 
@@ -120,16 +116,13 @@ CONSTANCE_CONFIG = OrderedDict([
     ('SITE_STACKOVERFLOW_URL', ('', 'Stackoverflow url')),
     ('HOME_PAGE_TITLE', ('Personal Blog', 'Home page title')),
     ('HOME_PAGE_DESCRIPTION', ('Software Engineer @ Huawei Tech.', 'Home page title description')),
-    ('HOME_PAGE_IMAGE', ('', 'Home page image')),
     ('ABOUT_PAGE_TITLE', ('About Me', 'About page title')),
     ('ABOUT_PAGE_SUBTITLE', ('This is what i do.', 'About page subtitle')),
     ('ABOUT_PAGE_SUMMARY', ('A summary about me', 'About page summary', 'editor_field')),
-    ('ABOUT_PAGE_IMAGE', ('', 'About page image')),
     ('CONTACT_PAGE_TITLE', ('Contact Me', 'Contact page title')),
     ('CONTACT_PAGE_SUBTITLE', ('Have questions? I have answers.', 'Contact page subtitle')),
     ('CONTACT_PAGE_SUMMARY', ('Want to get in touch? Fill out the form below to send me a message and '
                               'I will get back to you as soon as possible!', 'Contact page summary', 'editor_field')),
-    ('CONTACT_PAGE_IMAGE', ('', 'Contact page image')),
 ])
 
 CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
@@ -149,19 +142,16 @@ CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
     ('Home Page', (
         'HOME_PAGE_TITLE',
         'HOME_PAGE_DESCRIPTION',
-        'HOME_PAGE_IMAGE',
     )),
     ('About Page', (
         'ABOUT_PAGE_TITLE',
         'ABOUT_PAGE_SUBTITLE',
-        'ABOUT_PAGE_IMAGE',
         'ABOUT_PAGE_SUMMARY',
     )),
     ('Contact Page', (
         'CONTACT_PAGE_TITLE',
         'CONTACT_PAGE_SUBTITLE',
         'CONTACT_PAGE_SUMMARY',
-        'CONTACT_PAGE_IMAGE',
     )),
 ])
 
@@ -176,5 +166,4 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-FILER_CANONICAL_URL = 'm/'
 LOGIN_URL = '/admin/login/'

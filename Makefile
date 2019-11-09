@@ -18,15 +18,11 @@ docd:
 docdown:
 	cd docker && docker-compose down -v
 
-documentation:
-	cd docs && make html
-
 install:
 	pip install -r requirements.txt
 
 migrations:
 	python manage.py makemigrations
-	python manage.py migrate filer
 	python manage.py migrate
 
 run:

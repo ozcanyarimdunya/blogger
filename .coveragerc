@@ -5,9 +5,9 @@ omit =
     manage.py
     source/urls.py
     source/wsgi.py
-    source/apps/*/migrations/*
-    source/apps/*/tests.py
     source/apps/*/admin.py
-    source/apps/*/urls.py
+    source/apps/*/tests.py
     source/apps/*/management/commands/*
+    source/apps/*/migrations/*
+    source/apps/*/urls.py
     source/settings/*

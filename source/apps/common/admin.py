@@ -1,9 +1,25 @@
+from django import forms
 from django.contrib import admin
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import Contact
+from .models import Author, Contact, Stats
 
 
-@admin.register(Contact)
+class AuthorAdminForm(forms.ModelForm):
+    bio = forms.CharField(widget=CKEditorUploadingWidget(), required=False)
+
+    class Meta:
+        model = Author
+        fields = (
+            'username', 'password', 'first_name', 'last_name', 'email', 'is_active', 'is_staff', 'is_superuser',
+            'image', 'bio', 'groups', 'user_permissions',
+        )
+
+
+class AuthorAdmin(admin.ModelAdmin):
+    form = AuthorAdminForm
+
+
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'message_', 'email', 'ip', 'is_read',)
     list_display_links = ('name', 'message_')
@@ -30,3 +46,18 @@ class ContactAdmin(admin.ModelAdmin):
 
     mark_read.short_description = "Mark selected as read"
     mark_unread.short_description = "Mark selected as unread"
+
+
+class StatsAdmin(admin.ModelAdmin):
+    list_display = ('path', 'views', 'last_viewed')
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+
+admin.site.register(Contact, ContactAdmin)
+admin.site.register(Author, AuthorAdmin)
+admin.site.register(Stats, StatsAdmin)
