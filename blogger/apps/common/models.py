@@ -33,7 +33,7 @@ class Contact(BaseModel):
         ordering = ('-updated',)
 
     def __str__(self):
-        return f"{self.name}[{self.is_read}]"
+        return f"{self.name}/{self.is_read}"
 
     @property
     def message_(self):

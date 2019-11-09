@@ -16,7 +16,7 @@ class TestContact(TestCase):
     def test_str(self):
         self.assertEqual(
             str(self.contact),
-            'Test User[False]'
+            'Test User/False'
         )
 
     def test_message(self):
