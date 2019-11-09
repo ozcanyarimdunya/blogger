@@ -46,8 +46,7 @@ ROOT_URLCONF = 'blogger.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,7 +154,6 @@ CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
     )),
 ])
 
-AUTH_USER_MODEL = 'common.Author'
 CKEDITOR_UPLOAD_PATH = "editor/"
 
 MESSAGE_TAGS = {

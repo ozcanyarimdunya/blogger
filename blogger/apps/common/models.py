@@ -17,11 +17,6 @@ class BaseModel(models.Model):
         app_label = 'common'
 
 
-class Author(AbstractUser, BaseModel):
-    image = models.ImageField(null=True, blank=True)
-    bio = models.TextField(null=True, blank=True)
-
-
 class Contact(BaseModel):
     name = models.CharField(max_length=120)
     email = models.EmailField(null=True, blank=True)

@@ -2,22 +2,7 @@ from django import forms
 from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import Author, Contact, Stats
-
-
-class AuthorAdminForm(forms.ModelForm):
-    bio = forms.CharField(widget=CKEditorUploadingWidget(), required=False)
-
-    class Meta:
-        model = Author
-        fields = (
-            'username', 'password', 'first_name', 'last_name', 'email', 'is_active', 'is_staff', 'is_superuser',
-            'image', 'bio', 'groups', 'user_permissions',
-        )
-
-
-class AuthorAdmin(admin.ModelAdmin):
-    form = AuthorAdminForm
+from .models import Contact, Stats
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -59,5 +44,4 @@ class StatsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Author, AuthorAdmin)
 admin.site.register(Stats, StatsAdmin)
