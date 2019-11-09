@@ -2,8 +2,8 @@
 
 echo "... Applying Django migrations"
 python manage.py makemigrations
+python manage.py migrate filer
 python manage.py migrate
-python manage.py createcachetable
 
 echo "... Applying Django collect static"
 python manage.py collectstatic --noinput --clear

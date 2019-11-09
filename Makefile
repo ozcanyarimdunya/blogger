@@ -6,9 +6,6 @@ coverage:
 	coverage run --source='.' manage.py test source
 	coverage report -m
 
-cache:
-	python manage.py createcachetable
-
 coverage-html:
 	coverage html
 
@@ -27,11 +24,9 @@ documentation:
 install:
 	pip install -r requirements.txt
 
-initial:
-	python manage.py loaddata initial.json
-
 migrations:
 	python manage.py makemigrations
+	python manage.py migrate filer
 	python manage.py migrate
 
 run:

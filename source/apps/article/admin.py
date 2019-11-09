@@ -15,7 +15,7 @@ class ArticleAdminForm(forms.ModelForm):
 
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleAdminForm
-    list_display = ('title', 'author', 'created', 'updated', 'is_published')
+    list_display = ('preview', 'title', 'author', 'created', 'updated', 'is_published')
     readonly_fields = ('slug',)
     list_filter = ('author', 'is_published')
     actions = ('make_publish', 'make_draft')
