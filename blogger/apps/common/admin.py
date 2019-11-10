@@ -34,7 +34,8 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 class StatsAdmin(admin.ModelAdmin):
-    list_display = ('path', 'views', 'last_viewed')
+    list_display = ('visit', 'path', 'views', 'last_viewed')
+    list_display_links = ('path',)
 
     def has_add_permission(self, request):
         return False

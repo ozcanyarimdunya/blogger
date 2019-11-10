@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.test import TestCase
 
 from blogger.apps.common.models import Contact, Stats
@@ -60,13 +62,20 @@ class TestStats(TestCase):
         self.client.get('/about/')
         self.client.get('/about/')
         self.client.get('/contact/')
-        from datetime import datetime
         stat = Stats.objects.get(path='/contact/')
         self.assertAlmostEqual(
             stat.last_viewed.minute, datetime.now().minute
         )
         self.assertNotEqual(
             stat.last_viewed.time(), stat.created.time()
+        )
+
+    def test_visit_url(self):
+        self.client.get('/contact/')
+        stat = Stats.objects.get(path='/contact/')
+        self.assertInHTML(
+            '<a class="button" href="/contact/" target="blank">Link</a>',
+            stat.visit,
         )
 
 

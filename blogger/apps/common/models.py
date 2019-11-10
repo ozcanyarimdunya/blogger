@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils.html import format_html
 
 
 class BaseModel(models.Model):
@@ -50,3 +51,7 @@ class Stats(BaseModel):
     @property
     def last_viewed(self):
         return self.updated
+
+    @property
+    def visit(self):
+        return format_html("""<a href="{}" class="button" target="blank">Link</a>""", self.path)
