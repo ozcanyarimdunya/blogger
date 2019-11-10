@@ -31,5 +31,8 @@ run:
 static:
 	python manage.py collectstatic --noinput
 
+superuser:
+	python manage.py createsuperuser
+
 test:
 	python manage.py test blogger

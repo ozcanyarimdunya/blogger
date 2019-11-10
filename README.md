@@ -26,6 +26,11 @@ A blog application with django
    $ make
    ```
 
+4. To access admin panel, create a superuser and visit [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/).
+   ```
+   make superuser
+   ```
+    
 ## Running in docker
 
 1. Make sure you have installed **docker** and **docker-compose**.
