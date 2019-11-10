@@ -20,6 +20,7 @@ class ArticleAdmin(admin.ModelAdmin):
     readonly_fields = ('slug',)
     list_filter = ('author', 'is_published')
     actions = ('make_publish', 'make_draft')
+    search_fields = ('title', 'subtitle', 'content')
 
     def make_publish(self, request, queryset):
         queryset.update(is_published=True)

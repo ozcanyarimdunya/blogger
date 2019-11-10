@@ -10,6 +10,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_display_links = ('name', 'message_')
     list_filter = ('is_read',)
     actions = ('mark_read', 'mark_unread')
+    search_fields = ('name', 'message_', 'email', 'ip')
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, object_id)
@@ -36,6 +37,7 @@ class ContactAdmin(admin.ModelAdmin):
 class StatsAdmin(admin.ModelAdmin):
     list_display = ('visit', 'path', 'views', 'last_viewed')
     list_display_links = ('path',)
+    search_fields = ('path',)
 
     def has_add_permission(self, request):
         return False
