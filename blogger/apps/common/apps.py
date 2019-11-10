@@ -1,5 +1,5 @@
-from django.apps import AppConfig
 from constance.apps import ConstanceConfig as _ConstanceConfig
+from django.apps import AppConfig
 
 
 class CommonConfig(AppConfig):

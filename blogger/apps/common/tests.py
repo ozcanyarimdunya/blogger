@@ -74,7 +74,7 @@ class TestStats(TestCase):
         self.client.get('/contact/')
         stat = Stats.objects.get(path='/contact/')
         self.assertInHTML(
-            '<a class="button" href="/contact/" target="blank">Link</a>',
+            '<a class="button" href="/contact/" target="blank">&nbsp;&nbsp;&nbsp;↗&nbsp;&nbsp;&nbsp;</a>',
             stat.visit,
         )
 

@@ -21,10 +21,10 @@
         </li>
         {% if request.user.is_authenticated %}
           <li class="nav-item">
-                <a class="nav-link btn btn-sm btn-outline-success" href="{% url 'admin:index' %}">
-                  <i class="fa fa-cogs"></i>
-                  Admin
-                </a>
+            <a class="nav-link btn btn-sm btn-outline-success" href="{% url 'admin:index' %}">
+              <i class="fa fa-cogs"></i>
+              Admin
+            </a>
           </li>
         {% endif %}
       </ul>

@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 from django.utils.html import format_html
 
 
@@ -54,4 +54,5 @@ class Stats(BaseModel):
 
     @property
     def visit(self):
-        return format_html("""<a href="{}" class="button" target="blank">Link</a>""", self.path)
+        return format_html("""<a href="{}" class="button" target="blank">&nbsp;&nbsp;&nbsp;↗&nbsp;&nbsp;&nbsp;</a>""",
+                           self.path)
