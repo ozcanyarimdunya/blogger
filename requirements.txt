@@ -1,5 +1,5 @@
 coverage==4.5.4
-Django==2.2.8
+Django==2.2.21
 django-ckeditor==5.7.1
 django-constance==2.4.0
 django-js-asset==1.2.2
