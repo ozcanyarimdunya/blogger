@@ -5,7 +5,7 @@ django-constance==2.4.0
 django-js-asset==1.2.2
 django-picklefield==2.0
 gunicorn==19.9.0
-Pillow==6.2.1
+Pillow==9.0.0
 psycopg2==2.8.4
 pytz==2019.3
 redis==3.3.11
